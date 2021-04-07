@@ -1,4 +1,4 @@
-# YouTube-concept - учебный проект glo-academy
+# YouTube-concept - учебный проект Glo Academy
 Проект выполнела: Кристина Быченкова
 
 ## Используемые технологии ##
