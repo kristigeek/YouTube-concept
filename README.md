@@ -4,5 +4,6 @@
 ## Используемые технологии ##
 - HTML
 - CSS
+- JavaScript
 - Normalize.CSS
 - Svg Sprites
