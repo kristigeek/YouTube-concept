@@ -2,7 +2,7 @@
   box-sizing: border-box;
 }
 body {
-  font-family: 'Mulish', sans-serif;
+  font-family: "Mulish", sans-serif;
   font-size: 16px;
   font-weight: 400;
 }
@@ -14,6 +14,12 @@ body {
   padding-left: 32px;
   padding-right: 70px;
   margin-bottom: 30px;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background-color: #fff;
+  z-index: 99; /*делаем шапку поверх всего контента*/
 }
 
 .menu-button {
@@ -50,6 +56,7 @@ body {
   align-items: center;
   max-width: 830px;
   width: 50%;
+  margin-right: 40px; /*чтобы иконки не липли к поиску на меленьких экранах*/
 }
 
 .input-search {
@@ -108,7 +115,23 @@ body {
 }
 
 .sidebar {
+  position: fixed;
   padding-left: 32px;
+  width: 200px; /*отодвигаем ползунок от контента(было 12%) Меняем проценты на фиксированную px*/
+  left: 0;
+  top: 114px;
+  height: calc(100% - 114px); /*подстраивается под свобдое место на сайте*/
+  overflow-y: auto; /*прокрутка при большом количестве контента*/
+  background-color: #fff;
+}
+.content {
+  width: 100%;
+  height: 400px; /*меняем проценты на фиксированную высоту, чтобы при разных расширениях контент не заезжал на сайдбар 
+  margin-top: 85px; /*выравниваем контент, отодвигаем его на высоту шапки*/
+  margin-top: 85px;
+  padding-left: 250px; /*отодвигаем контент от сайдбара(было 13%)Изменили на фиксированную*/
+  padding-top: 30px; /*выровнили контент по высоте сайдбара*/
+  padding-right: 70px; /*добавляем при адаптивной верстке для воздуха справа*/
 }
 .nav-menu {
   margin-top: 0;
@@ -126,10 +149,10 @@ body {
   color: #898989;
 }
 .nav-link:hover {
-    color: red;
+  color: red;
 }
 .nav-link:hover .icon {
-    fill: red;
+  fill: red;
 }
 .nav-item .icon {
   fill: #898989;
@@ -142,11 +165,193 @@ body {
   height: 26px;
   border-radius: 50%;
 }
-
+.channel {
+  position: relative; /*меняем положение кнопок в слайдере*/
+  margin-bottom: 50px;
+}
 .nav-title {
   font-weight: bold;
   font-size: 18px;
   line-height: 23px;
   color: #000000;
   margin-bottom: 30px;
+}
+.channel-title {
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+  color: #19202c;
+  font-weight: bold;
+  font-size: 26px;
+  line-height: 33px;
+  margin-bottom: 30px;
+}
+.channel-avatar {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+}
+.channel-text {
+  margin-left: 20px;
+}
+/*.video-card {
+  width: 250px; чтобы контент был ровно под картинкой(убрали и установии резиновую ширину ниже*/
+
+.video-thumb {
+  width: 100%;
+  height: 150px;
+  overflow: hidden;
+  border-radius: 14px;
+  position: relative;
+}
+.thumbnail {
+  width: 100%;
+  height: 150px;
+  object-fit: cover; /*чтобы картинка не сплющивалась*/
+}
+.video-duration {
+  position: absolute;
+  bottom: 10px;
+  right: 10px;
+  background: rgba(0, 0, 0, 0.3);
+  border-radius: 12px;
+  color: white;
+  font-size: 14px;
+  line-height: 18px;
+  padding: 3px 9px;
+}
+
+.video-title {
+  font-weight: bold;
+  font-size: 16px;
+  line-height: 20px;
+  color: #19202c;
+  margin-top: 10px;
+  margin-bottom: 4px;
+}
+.video-info {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-size: 13px;
+  line-height: 16px;
+  color: #c2c2c2;
+}
+.video-counter {
+  display: flex;
+}
+.video-views {
+  margin-right: 5px;
+}
+.video-views:after {
+  /*псевдоэлемент (точка)*/
+  content: "";
+  width: 2px;
+  height: 2px;
+  background-color: #c2c2c2;
+  display: inline-block;
+  vertical-align: middle;
+  margin-left: 5px;
+}
+.channel-button {
+  cursor: pointer;
+  outline: none;
+}
+.slider-buttons {
+  position: absolute; /*меняем положение кнопок в слайдере*/
+  right: 8%;
+  top: 15px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 66px;
+}
+.video-thumb-recommended {
+  width: 540px;
+  height: 250px;
+  overflow: hidden;
+  border-radius: 14px;
+  position: relative;
+}
+.recommended {
+  width: 540px;
+  height: 250px;
+  object-fit: cover;
+}
+.food {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  max-width: 1300px;
+}
+.food-subtitle {
+  font-size: 16px;
+  line-height: 20px;
+  color: #c2c2c2;
+  font-weight: normal;
+  margin-left: 19px;
+}
+.food-button {
+  padding: 10px 20px;
+  background: #ff0000;
+  border-radius: 20px;
+  color: white;
+  border: none;
+  margin-bottom: 20px;
+}
+.mobile-sidebar {
+  display: none;
+}
+
+@media (max-width: 860px) {
+  .icons {
+    display: none;
+  }
+  .user {
+    margin-left: auto;
+  }
+}
+@media (max-width: 640px) {
+  .mobile-search {
+    display: block;
+  }
+  .menu-button {
+    display: none;
+  }
+  .sidebar {
+    display: none;
+  }
+  .content {
+    padding-left: 32px;
+  }
+  .mobile-sidebar {
+    display: block;
+    position: fixed;
+    z-index: 99;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    background-color: #fff;
+  }
+  .mobile-sidebar .nav-link {
+    display: flex;
+    flex-direction: column;
+  }
+  .mobile-sidebar .nav-menu {
+    margin-bottom: 0;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    padding-top: 13px;
+    padding-bottom: 11px;
+    border-top: 1px solid #f1f1f1;
+  }
+  .nav-text {
+    margin-left: 0;
+    font-size: 10px;
+    line-height: 13px;
+  }
+  .nav-item {
+    margin-bottom: 0;
+  }
 }
